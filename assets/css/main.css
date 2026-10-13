@@ -349,6 +349,7 @@ a.tag:hover { color: var(--text-strong); border-color: var(--border-strong); tex
 [hidden] { display: none !important; }
 
 /* ── Résumé page ─────────────────────────────────────── */
+.resume__edu { margin-bottom: .8rem; }
 .resume { padding-top: clamp(40px, 7vw, 80px); padding-bottom: clamp(56px, 8vw, 96px); }
 .resume__head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1.5rem; flex-wrap: wrap;
   padding-bottom: 1.6rem; border-bottom: 1px solid var(--border); }
@@ -403,7 +404,7 @@ button.btn { cursor: pointer; font-family: var(--font-body); }
   .resume__org { margin: 0 0 .2rem; font-size: .95rem; }
   .resume__item ul { font-size: 1rem; padding-left: 1.05em; }
   .resume__item li { margin-bottom: .1rem; }
-
+  .resume__edu { margin-bottom: .35rem; break-inside: avoid; }
   .resume__skills { gap: .15rem; }
   .resume__skills > div { grid-template-columns: 13rem 1fr; gap: .6rem; }
 }
