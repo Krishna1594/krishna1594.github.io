@@ -14,6 +14,6 @@
 - group: Domain
   items:
     - { name: Well integrity data, strong: true }
-    - { name: Downhole ultrasound }
-    - { name: Petrophysics & well logs }
+    - { name: Downhole ultrasound Image Processing }
+    - { name: Data Analysis & Visualization }
     - { name: Data quality assurance }
