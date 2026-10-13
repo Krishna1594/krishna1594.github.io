@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<article class="article">
+  <header class="wrap wrap--narrow article__head">
+    <a class="back mono" href="{{ '/projects/' | relative_url }}">← All projects</a>
+    <p class="eyebrow">Project</p>
+    <h1>{{ page.name | default: page.title }}</h1>
+    {% if page.description %}<p class="lede">{{ page.description }}</p>{% endif %}
+    <ul class="tags">{% for t in page.tools %}<li class="tag">{{ t }}</li>{% endfor %}</ul>
+  </header>
+  <div class="wrap wrap--narrow prose">
+    {{ content }}
+  </div>
+</article>

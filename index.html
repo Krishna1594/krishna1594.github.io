@@ -1,0 +1,98 @@
+---
+layout: default
+---
+<section class="hero">
+  <div class="wrap hero__inner">
+    <div class="hero__copy">
+      <p class="eyebrow"><span class="pulse" aria-hidden="true"></span>Data Analyst · {{ site.author.location }}</p>
+      <h1 class="hero__title">I turn messy, high-volume data into <em>decisions people can act on.</em></h1>
+      <p class="hero__lede">
+        I analyze high-resolution downhole ultrasound data at DarkVision Technologies, where I also handle quality control on the analysis work.
+        Before that, six years as a field engineer taught me what the numbers are actually measuring. I work in SQL, R, MATLAB and Tableau.
+      </p>
+      <div class="hero__actions">
+        <a class="btn" href="{{ '/projects/' | relative_url }}">See projects <span aria-hidden="true">→</span></a>
+        <a class="btn btn--ghost" href="{{ '/blog/' | relative_url }}">Read the blog</a>
+        <a class="link-quiet" href="{{ '/resume/' | relative_url }}">Résumé →</a>
+      </div>
+    </div>
+    <div class="hero__portrait">
+      <div class="portrait">
+        <img src="{{ site.author.image }}" alt="Portrait of {{ site.author.name }}" width="260" height="260">
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <dl class="stats">
+      <div><dt>Years in energy &amp; data</dt><dd>{{ site.time | date: '%Y' | minus: 2017 }}+</dd></div>
+      <div><dt>Projects</dt><dd>{{ site.projects.size }}</dd></div>
+      <div><dt>Rows queried in one project</dt><dd>2.9M</dd></div>
+      <div><dt>Posts</dt><dd>{{ site.posts.size }}</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section__head">
+      <div>
+        <p class="eyebrow">Toolkit</p>
+        <h2>What I work with</h2>
+      </div>
+    </div>
+    <div class="toolkit">
+      {% for group in site.data.skills %}
+      <div class="toolkit__group">
+        <h3 class="mono dim">{{ group.group }}</h3>
+        <ul class="chips">{% for s in group.items %}<li class="chip{% if s.strong %} chip--strong{% endif %}">{{ s.name }}</li>{% endfor %}</ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section__head">
+      <div>
+        <p class="eyebrow">Projects</p>
+        <h2>Selected work</h2>
+      </div>
+      <a class="link-quiet" href="{{ '/projects/' | relative_url }}">All {{ site.projects.size }} projects →</a>
+    </div>
+    <div class="grid">
+      {% for p in site.projects limit: 6 %}{% include project-card.html project=p %}{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section__head">
+      <div>
+        <p class="eyebrow">Blog</p>
+        <h2>Recent writing</h2>
+      </div>
+      <a class="link-quiet" href="{{ '/blog/' | relative_url }}">All posts →</a>
+    </div>
+    <div class="post-list">
+      {% for post in site.posts limit: 3 %}{% include post-row.html post=post %}{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="cta">
+      <div>
+        <h2>Have a dataset that needs a second pair of eyes?</h2>
+        <p class="dim">I'm happy to talk about analysis, data quality, or well-integrity data.</p>
+      </div>
+      <div class="cta__actions">
+        <a class="btn" href="mailto:{{ site.author.email }}">Email me</a>
+        <a class="btn btn--ghost" href="https://www.linkedin.com/in/{{ site.author.linkedin }}" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+  </div>
+</section>

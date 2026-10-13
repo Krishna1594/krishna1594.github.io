@@ -1,0 +1,12 @@
+{% assign post = include.post %}
+<article class="post-row" data-tags="{{ post.tags | join: '|' | downcase }}">
+  <a href="{{ post.url | relative_url }}" class="post-row__link">
+    {% if post.image %}<img class="post-row__img" src="{{ post.image }}" alt="" loading="lazy">{% endif %}
+    <div class="post-row__body">
+      <time class="mono dim" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %-d, %Y' }}</time>
+      <h3 class="post-row__title">{{ post.title }}</h3>
+      {% if post.description %}<p class="post-row__text">{{ post.description }}</p>{% endif %}
+      <ul class="tags">{% for t in post.tags limit: 4 %}<li class="tag">{{ t }}</li>{% endfor %}</ul>
+    </div>
+  </a>
+</article>

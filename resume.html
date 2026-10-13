@@ -1,0 +1,68 @@
+---
+layout: default
+title: Résumé
+permalink: /resume/
+description: Résumé of Krishna N Bharatula, data analyst — experience in well-integrity data analysis, quality control and MWD/LWD field engineering.
+---
+{% comment %} The download button only appears once the PDF actually exists in the repo. {% endcomment %}
+{% assign pdf = site.static_files | where: "path", site.author.resume_pdf | first %}
+
+<div class="wrap wrap--narrow resume">
+  <header class="resume__head">
+    <div>
+      <p class="eyebrow">Résumé</p>
+      <h1>{{ site.author.name }}</h1>
+      <p class="resume__role">{{ site.tagline }} · {{ site.author.location }}</p>
+      <p class="resume__contact mono">
+        <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}">linkedin.com/in/{{ site.author.linkedin }}</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://github.com/{{ site.author.github }}">github.com/{{ site.author.github }}</a>
+      </p>
+    </div>
+    <div class="resume__actions no-print">
+      {% if pdf %}
+        <a class="btn" href="{{ pdf.path | relative_url }}" download>Download PDF ↓</a>
+      {% endif %}
+      <button class="btn btn--ghost" type="button" onclick="window.print()">Print</button>
+    </div>
+  </header>
+
+  <section class="resume__section">
+    <h2>Summary</h2>
+    <p>
+      Data analyst with {{ site.time | date: '%Y' | minus: 2017 }} years across energy and data. I analyze high-resolution downhole ultrasound data at
+      DarkVision Technologies to identify deformation, wall loss and scaling, perform data quality assurance on
+      well-integrity deliverables, and am recognized as a subject matter expert in well-integrity data analysis.
+      Previously six years in MWD/LWD field roles on Halliburton operations in the US and India.
+    </p>
+  </section>
+
+  <section class="resume__section">
+    <h2>Experience &amp; education</h2>
+    {% for item in site.data.timeline %}
+    <div class="resume__item">
+      <div class="resume__item-head">
+        <h3>{{ item.role }}</h3>
+        <span class="mono resume__when">{{ item.from }} – {{ item.to }}</span>
+      </div>
+      <p class="resume__org">{{ item.org }}</p>
+      <ul>{% for pt in item.points %}<li>{{ pt }}</li>{% endfor %}</ul>
+    </div>
+    {% endfor %}
+  </section>
+
+  <section class="resume__section">
+    <h2>Skills</h2>
+    <dl class="resume__skills">
+      {% for group in site.data.skills %}
+      <div>
+        <dt>{{ group.group }}</dt>
+        <dd>{% for s in group.items %}{{ s.name }}{% unless forloop.last %}, {% endunless %}{% endfor %}</dd>
+      </div>
+      {% endfor %}
+    </dl>
+  </section>
+
+</div>

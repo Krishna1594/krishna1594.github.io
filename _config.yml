@@ -1,0 +1,63 @@
+# ─────────────────────────────────────────────────────────────
+#  Site settings — edit these, everything else reads from here
+# ─────────────────────────────────────────────────────────────
+title: Krishna N Bharatula
+tagline: Data Analyst
+description: >-
+  Data analyst working with high-resolution downhole ultrasound data at
+  DarkVision Technologies. Projects and writing on SQL, R, MATLAB and Tableau.
+url: "https://krishna1594.github.io"
+baseurl: ""
+lang: en
+
+author:
+  name: Krishna Nischal Bharatula
+  short: Krishna
+  image: https://i.postimg.cc/DZZCsbHY/krishnanb.jpg
+  location: British Columbia, Canada
+  email: krishnanischal@hotmail.com
+  github: Krishna1594
+  linkedin: krishna-nischal-bharatula
+  medium: krishnanischal
+  tableau: krishna.n.bharatula
+  resume_pdf: /assets/Krishna-Bharatula-Resume.pdf   # drop the PDF at this path; keep the same filename when you update it
+
+# Navigation (order = order in the menu)
+nav:
+  - { title: Projects, url: /projects/ }
+  - { title: Blog,     url: /blog/ }
+  - { title: About,    url: /about/ }
+  - { title: Résumé,   url: /resume/ }
+
+# ─────────────────────────────────────────────────────────────
+#  Content
+# ─────────────────────────────────────────────────────────────
+permalink: /blog/:title          # keeps your existing post URLs working
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name   # keeps your existing project URLs working
+
+defaults:
+  - scope: { path: "", type: posts }
+    values: { layout: post }
+  - scope: { path: "", type: projects }
+    values: { layout: project }
+  - scope: { path: "" }
+    values: { layout: page }
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-feed      # RSS feed at /feed.xml
+  - jekyll-seo-tag   # link previews on LinkedIn etc.
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

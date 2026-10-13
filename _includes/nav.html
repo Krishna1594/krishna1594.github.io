@@ -1,0 +1,21 @@
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="Home">
+      <span class="brand__mark">KB</span>
+      <span class="brand__name">{{ site.author.name | split: ' ' | first }} <span class="dim">N Bharatula</span></span>
+    </a>
+    <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span>
+    </button>
+    <nav id="nav-links" class="nav__links">
+      {% for item in site.nav %}
+        {% assign active = false %}
+        {% if page.url contains item.url %}{% assign active = true %}{% endif %}
+        {% if item.url == '/blog/' and page.layout == 'post' %}{% assign active = true %}{% endif %}
+        {% if item.url == '/projects/' and page.collection == 'projects' %}{% assign active = true %}{% endif %}
+        <a href="{{ item.url | relative_url }}"{% if active %} aria-current="page"{% endif %}>{{ item.title }}</a>
+      {% endfor %}
+      <a class="btn btn--sm" href="mailto:{{ site.author.email }}">Get in touch</a>
+    </nav>
+  </div>
+</header>

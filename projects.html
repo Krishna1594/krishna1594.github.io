@@ -1,0 +1,18 @@
+---
+layout: page
+title: Projects
+permalink: /projects/
+eyebrow: Work
+lede: Analysis, dashboards and engineering tools — from USDA pesticide data to drilling hydraulics.
+---
+{% assign all_tools = "" | split: "" %}
+{% for p in site.projects %}{% assign all_tools = all_tools | concat: p.tools %}{% endfor %}
+{% assign all_tools = all_tools | uniq | sort_natural %}
+<div class="filters" role="group" aria-label="Filter projects by tool" data-filter-target=".grid .project" data-filter-attr="tools">
+  <button class="filter is-active" data-value="">All</button>
+  {% for t in all_tools %}<button class="filter" data-value="{{ t | downcase }}">{{ t }}</button>{% endfor %}
+</div>
+<div class="grid">
+  {% for p in site.projects %}{% include project-card.html project=p %}{% endfor %}
+</div>
+<p class="empty dim" hidden>No projects with that tool.</p>

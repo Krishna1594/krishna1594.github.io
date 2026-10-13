@@ -1,0 +1,25 @@
+{% assign p = include.project %}
+{% if p.external_url %}{% assign href = p.external_url %}{% assign ext = true %}{% else %}{% assign href = p.url | relative_url %}{% assign ext = false %}{% endif %}
+<article class="card project" data-tools="{{ p.tools | join: '|' | downcase }}">
+  <a class="card__link" href="{{ href }}"{% if ext %} target="_blank" rel="noopener"{% endif %}>
+    <div class="card__media">
+      {% if p.image and p.image != '' %}
+        <img src="{{ p.image }}" alt="" loading="lazy">
+      {% else %}
+        <div class="card__placeholder" aria-hidden="true"><span>{{ p.name | slice: 0, 1 }}</span></div>
+      {% endif %}
+    </div>
+    <div class="card__body">
+      <h3 class="card__title">{{ p.name }}</h3>
+      <p class="card__text">{{ p.description }}</p>
+      <ul class="tags">
+        {% for t in p.tools %}<li class="tag">{{ t }}</li>{% endfor %}
+      </ul>
+      <span class="card__cta">
+        {% if ext %}
+          {% if href contains 'tableau' %}Open dashboard{% elsif href contains 'github' %}View on GitHub{% elsif href contains 'medium' %}Read on Medium{% elsif href contains 'linkedin' %}Read on LinkedIn{% else %}Open{% endif %} <span aria-hidden="true">↗</span>
+        {% else %}Read case study <span aria-hidden="true">→</span>{% endif %}
+      </span>
+    </div>
+  </a>
+</article>

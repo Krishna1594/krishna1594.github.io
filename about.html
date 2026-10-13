@@ -1,0 +1,45 @@
+---
+layout: page
+title: About
+permalink: /about/
+eyebrow: About me
+---
+<div class="about">
+  <div class="about__intro prose">
+    <p class="lede">Hi, I'm {{ site.author.short }}. I'm a data analyst who came to data through the oilfield.</p>
+    <p>
+      I spent six years in measurement- and logging-while-drilling field roles on Halliburton operations, first in Texas and then in India.
+      In that job, formations speak in numbers and I was the interpreter. Today I do the same thing at
+      <strong>DarkVision Technologies</strong>, analyzing high-resolution downhole ultrasound data to find deformation, wall loss and
+      scaling, and turning it into well-integrity reports clients can act on.
+    </p>
+    <p>
+      Outside work I build data projects on whatever catches my curiosity, from USDA pesticide residues to World Bank lending.
+      Away from the screen you'll find me doing astrophotography, playing PC games, or on a badminton court.
+    </p>
+    <div class="about__actions">
+      <a class="btn" href="{{ '/resume/' | relative_url }}">View résumé →</a>
+      <a class="btn btn--ghost" href="mailto:{{ site.author.email }}">Email me</a>
+    </div>
+  </div>
+  <aside class="about__card">
+    <img src="{{ site.author.image }}" alt="Portrait of {{ site.author.name }}" width="160" height="160">
+    <p class="about__name">{{ site.author.name }}</p>
+    <p class="dim">{{ site.tagline }}<br>{{ site.author.location }}</p>
+    {% include social.html %}
+  </aside>
+</div>
+
+<h2 class="h-section">Experience &amp; education</h2>
+<ol class="timeline">
+  {% for item in site.data.timeline %}
+  <li class="timeline__item">
+    <div class="timeline__when mono">{{ item.from }} – {{ item.to }}</div>
+    <div class="timeline__body">
+      <h3>{{ item.role }}</h3>
+      <p class="dim">{{ item.org }}</p>
+      <ul class="timeline__desc">{% for pt in item.points %}<li>{{ pt }}</li>{% endfor %}</ul>
+    </div>
+  </li>
+  {% endfor %}
+</ol>

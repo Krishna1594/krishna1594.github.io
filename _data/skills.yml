@@ -1,0 +1,19 @@
+# strong: true highlights the chip
+- group: Languages & querying
+  items:
+    - { name: SQL / MySQL, strong: true }
+    - { name: R, strong: true }
+    - { name: MATLAB, strong: true }
+    - { name: Python }
+- group: Visualization & reporting
+  items:
+    - { name: Tableau, strong: true }
+    - { name: Excel, strong: true }
+    - { name: Quarto }
+    - { name: Confluence }
+- group: Domain
+  items:
+    - { name: Well integrity data, strong: true }
+    - { name: Downhole ultrasound }
+    - { name: Petrophysics & well logs }
+    - { name: Data quality assurance }

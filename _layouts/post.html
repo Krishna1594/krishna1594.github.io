@@ -1,0 +1,24 @@
+---
+layout: default
+---
+{% assign words = content | number_of_words %}
+{% assign minutes = words | divided_by: 200 | plus: 1 %}
+<article class="article">
+  <header class="wrap wrap--narrow article__head">
+    <a class="back mono" href="{{ '/blog/' | relative_url }}">← All posts</a>
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}<p class="lede">{{ page.description }}</p>{% endif %}
+    <div class="article__meta mono dim">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%B %-d, %Y' }}</time>
+      <span>·</span><span>{{ minutes }} min read</span>
+    </div>
+    <ul class="tags">{% for t in page.tags %}<li><a class="tag" href="{{ '/blog/' | relative_url }}?tag={{ t | downcase | uri_escape }}">{{ t }}</a></li>{% endfor %}</ul>
+  </header>
+  <div class="wrap wrap--narrow prose">
+    {{ content }}
+  </div>
+  <nav class="wrap wrap--narrow pager">
+    {% if page.previous %}<a class="pager__item" href="{{ page.previous.url | relative_url }}"><span class="mono dim">← Older</span><span>{{ page.previous.title }}</span></a>{% else %}<span></span>{% endif %}
+    {% if page.next %}<a class="pager__item pager__item--next" href="{{ page.next.url | relative_url }}"><span class="mono dim">Newer →</span><span>{{ page.next.title }}</span></a>{% endif %}
+  </nav>
+</article>
