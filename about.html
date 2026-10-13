@@ -29,17 +29,3 @@ eyebrow: About me
     {% include social.html %}
   </aside>
 </div>
-
-<h2 class="h-section">Experience &amp; education</h2>
-<ol class="timeline">
-  {% for item in site.data.timeline %}
-  <li class="timeline__item">
-    <div class="timeline__when mono">{{ item.from }} – {{ item.to }}</div>
-    <div class="timeline__body">
-      <h3>{{ item.role }}</h3>
-      <p class="dim">{{ item.org }}</p>
-      <ul class="timeline__desc">{% for pt in item.points %}<li>{{ pt }}</li>{% endfor %}</ul>
-    </div>
-  </li>
-  {% endfor %}
-</ol>
