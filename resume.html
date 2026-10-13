@@ -39,9 +39,25 @@ description: Résumé of Krishna N Bharatula, data analyst — experience in wel
     </p>
   </section>
 
+
   <section class="resume__section">
-    <h2>Experience &amp; education</h2>
-    {% for item in site.data.timeline %}
+    <h2>Skills</h2>
+    <dl class="resume__skills">
+      {% for group in site.data.skills %}
+      <div>
+        <dt>{{ group.group }}</dt>
+        <dd>{% for s in group.items %}{{ s.name }}{% unless forloop.last %}, {% endunless %}{% endfor %}</dd>
+      </div>
+      {% endfor %}
+    </dl>
+  </section>
+
+    {% assign jobs = site.data.timeline | where_exp: "i", "i.type != 'education'" %}
+  {% assign degrees = site.data.timeline | where: "type", "education" %}
+
+  <section class="resume__section">
+    <h2>Experience</h2>
+    {% for item in jobs %}
     <div class="resume__item">
       <div class="resume__item-head">
         <h3>{{ item.role }}</h3>
@@ -54,15 +70,16 @@ description: Résumé of Krishna N Bharatula, data analyst — experience in wel
   </section>
 
   <section class="resume__section">
-    <h2>Skills</h2>
-    <dl class="resume__skills">
-      {% for group in site.data.skills %}
-      <div>
-        <dt>{{ group.group }}</dt>
-        <dd>{% for s in group.items %}{{ s.name }}{% unless forloop.last %}, {% endunless %}{% endfor %}</dd>
+    <h2>Education</h2>
+    {% for item in degrees %}
+    <div class="resume__edu">
+      <div class="resume__item-head">
+        <h3>{{ item.role }}</h3>
+        <span class="mono resume__when">{{ item.from }} – {{ item.to }}</span>
       </div>
-      {% endfor %}
-    </dl>
+      <p class="resume__org">{{ item.org }}{% if item.points %} · {{ item.points | join: ' ' }}{% endif %}</p>
+    </div>
+    {% endfor %}
   </section>
 
 </div>
