@@ -28,6 +28,7 @@
     - Maintained data quality (handled missing data and safe storage of well data) and well-log quality to client specifications.
 
 - role: Master of Science, Natural Gas Engineering
+  type: education
   org: Texas A&M University–Kingsville
   from: 2016
   to: 2017
@@ -36,6 +37,7 @@
     - Co-founded the American Association of Drilling Engineers TAMUK student chapter in 2016; received the best student community service award.
 
 - role: Bachelor of Technology, Petroleum Engineering
+  type: education
   org: Jawaharlal Nehru Technological University, Kakinada
   from: 2011
   to: 2015
