@@ -375,14 +375,35 @@ button.btn { cursor: pointer; font-family: var(--font-body); }
 .resume__skills dd { margin: 0; color: var(--text-strong); }
 @media (max-width: 600px) { .resume__skills > div { grid-template-columns: 1fr; gap: .1rem; } }
 
-/* Print: clean black-on-white résumé, so "Print → Save as PDF" gives a usable file */
+/* Print: clean black-on-white résumé.
+   Tuning knobs: --print-size (body text) and the @page margin. Don't go below 9pt. */
 @media print {
-  :root { --bg: #fff; --text: #1a1a1a; --text-strong: #000; --muted: #444; --accent: #7a1832; --border: #ccc; }
-  body { background: #fff; font-size: 10.5pt; }
+  :root { --bg: #fff; --text: #1a1a1a; --text-strong: #000; --muted: #444; --accent: #7a1832; --border: #bbb;
+          --print-size: 9.5pt; }
+  @page { size: letter; margin: 0.55in 0.6in; }
+  html { font-size: var(--print-size); }
+  body { background: #fff; font-size: var(--print-size); line-height: 1.38; display: block; }
   body::before, .nav, .footer, .no-print, .skip { display: none !important; }
-  .resume { padding: 0; max-width: none; }
-  .resume__section { margin-top: 1.1rem; break-inside: auto; }
-  .resume__item { break-inside: avoid; margin-bottom: .9rem; }
   a { color: inherit !important; text-decoration: none !important; }
-  @page { margin: 14mm 16mm; }
+
+  .resume { padding: 0 !important; max-width: none; }
+  .resume__head { padding-bottom: .5rem; display: block; }
+  .resume__head .eyebrow { display: none; }
+  .resume__head h1 { font-size: 1.9rem; margin: 0 0 .15rem; letter-spacing: 0; }
+  .resume__role { margin: 0 0 .15rem; font-size: 1.05rem; }
+  .resume__contact { font-size: .92rem; gap: 0 .5rem; }
+
+  .resume__section { margin-top: .75rem; }
+  .resume__section h2 { font-size: .95rem; margin: 0 0 .35rem; padding-bottom: .15rem; border-bottom: 1px solid var(--border); }
+  .resume__section p { margin: 0; }
+
+  .resume__item { margin-bottom: .55rem; break-inside: avoid; }
+  .resume__item-head h3 { font-size: 1.05rem; }
+  .resume__when { font-size: .92rem; }
+  .resume__org { margin: 0 0 .2rem; font-size: .95rem; }
+  .resume__item ul { font-size: 1rem; padding-left: 1.05em; }
+  .resume__item li { margin-bottom: .1rem; }
+
+  .resume__skills { gap: .15rem; }
+  .resume__skills > div { grid-template-columns: 13rem 1fr; gap: .6rem; }
 }
