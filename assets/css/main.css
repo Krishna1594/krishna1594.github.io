@@ -351,11 +351,11 @@ a.tag:hover { color: var(--text-strong); border-color: var(--border-strong); tex
 /* ── Résumé page ─────────────────────────────────────── */
 .resume__edu { margin-bottom: .8rem; }
 .resume { padding-top: clamp(40px, 7vw, 80px); padding-bottom: clamp(56px, 8vw, 96px); }
-.resume__head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1.5rem; flex-wrap: wrap;
+.resume__head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1rem;
   padding-bottom: 1.6rem; border-bottom: 1px solid var(--border); }
 .resume__head h1 { margin-bottom: .2em; }
 .resume__role { color: var(--text-strong); margin-bottom: .5rem; }
-.resume__contact { color: var(--muted); display: flex; flex-wrap: wrap; gap: .3rem .6rem; margin: 0; }
+.resume__contact { color: var(--muted); display: flex; flex-wrap: wrap; gap: .3rem .6rem; margin: 0; justify-content: center; }
 .resume__contact a { color: var(--muted); }
 .resume__contact a:hover { color: var(--accent); }
 .resume__actions { display: flex; gap: .6rem; flex-wrap: wrap; }
@@ -388,7 +388,7 @@ button.btn { cursor: pointer; font-family: var(--font-body); }
   a { color: inherit !important; text-decoration: none !important; }
 
   .resume { padding: 0 !important; max-width: none; }
-  .resume__head { padding-bottom: .5rem; display: block; }
+  .resume__head { padding-bottom: .5rem; display: block; text-align: center; }
   .resume__head .eyebrow { display: none; }
   .resume__head h1 { font-size: 1.9rem; margin: 0 0 .15rem; letter-spacing: 0; }
   .resume__role { margin: 0 0 .15rem; font-size: 1.05rem; }
