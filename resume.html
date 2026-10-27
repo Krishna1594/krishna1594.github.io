@@ -76,7 +76,8 @@ description: Résumé of Krishna N Bharatula, data analyst — experience in wel
         <h3>{{ item.role }}</h3>
         <span class="mono resume__when">{{ item.from }} – {{ item.to }}</span>
       </div>
-      <p class="resume__org">{{ item.org }}{% if item.points %} · {{ item.points | join: ' ' }}{% endif %}</p>
+      <p class="resume__org">{{ item.org }}</p>
+      {% for pt in item.points %}<p class="resume__edu-note">{{ pt }}</p>{% endfor %}
     </div>
     {% endfor %}
   </section>
@@ -85,7 +86,7 @@ description: Résumé of Krishna N Bharatula, data analyst — experience in wel
   <section class="resume__section">
     <h2>Certifications</h2>
     {% for c in site.data.certifications %}
-    <div class="resume__cert">
+    <div class="resume__item-head resume__cert">
       <span>
         {% if c.url %}<a href="{{ c.url }}" target="_blank" rel="noopener">{{ c.name }}</a>{% else %}{{ c.name }}{% endif %}
         <span class="resume__org"> · {{ c.issuer }}</span>
