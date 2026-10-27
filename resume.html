@@ -93,5 +93,20 @@ description: Résumé of Krishna N Bharatula, data analyst — experience in wel
     </div>
     {% endfor %}
   </section>
+
+  {% if site.data.certifications and site.data.certifications.size > 0 %}
+  <section class="resume__section">
+    <h2>Certifications</h2>
+    {% for c in site.data.certifications %}
+    <div class="resume__cert">
+      <span>
+        {% if c.url %}<a href="{{ c.url }}" target="_blank" rel="noopener">{{ c.name }}</a>{% else %}{{ c.name }}{% endif %}
+        <span class="resume__org"> · {{ c.issuer }}</span>
+      </span>
+      <span class="mono resume__when">{{ c.year }}</span>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
   
 </div>
