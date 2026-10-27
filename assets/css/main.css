@@ -411,4 +411,6 @@ button.btn { cursor: pointer; font-family: var(--font-body); }
   .resume__skills { gap: .15rem; }
   .resume__skills > div { grid-template-columns: 13rem 1fr; gap: .6rem; }
   .resume__cert { margin-bottom: .15rem; break-inside: avoid; }
+  .resume__edu-note { margin: 0; font-size: .93rem; }
+  .resume__when { margin-left: auto; }
 }
